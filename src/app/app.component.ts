@@ -830,7 +830,7 @@ export class AppComponent {
     let nombreArchivo = '00000000000';
     nombreArchivo = this.model['Solicitante'][0]['CUIL'];
       doc.output('dataurlnewwindow');
-      doc.save('solicitudCreditoL2' + nombreArchivo + '.pdf');
+      doc.save('solicitudVD' + nombreArchivo + '.pdf');
 
 
     } else (error) => {
