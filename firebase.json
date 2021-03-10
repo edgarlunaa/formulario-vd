@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "formulario-postulante-vd",
     "public": "dist",
     "ignore": [
       "firebase.json",
