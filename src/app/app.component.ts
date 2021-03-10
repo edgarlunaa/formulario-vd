@@ -61,6 +61,7 @@ export class AppComponent {
             options:[
               {value: 'Femenino', label: 'Femenino'},
               {value: 'Masculino', label: 'Masculino'},
+              {value: 'No binario', label: 'No binario'},
             ],
             required: true,
           },
@@ -158,12 +159,12 @@ export class AppComponent {
  //--------------------------------------------------------------------------------------------------------
 
   {
-    className: 'ocupacion-titular',
-    template: '<div><h2>Ocupación del titular:</h2></div>',
+    className: 'ocupacion-solicitante',
+    template: '<div><h2>Ocupación del solicitante:</h2></div>',
   },
 
   {
-    key: 'Ocupación del titular',
+    key: 'Ocupación del solicitante',
     type: 'no repeat',
     templateOptions: {
       addText: 'Ingresar ocupación del titular',
@@ -175,6 +176,7 @@ export class AppComponent {
         type: 'select',
         templateOptions: {
           label: 'Ocupación',
+          multiple: true,
           options:[
             {value: 'Ama de casa', label: 'Ama de casa'},
             {value: 'Changarin', label: 'Changarin'},
@@ -205,6 +207,7 @@ export class AppComponent {
           required: true,
         },
       },
+      
       {
         key: 'Frecuencia laboral',
         type: 'select',
@@ -216,7 +219,17 @@ export class AppComponent {
             {value: 'Temporario', label: 'Temporario'},
           ]
         }
+      },
+      {
+        key: 'Ingreso promedio mensual de ingresos',
+        type: 'input',
+        templateOptions: {
+          label: 'Ingreso promedio mensual de ingresos',
+          placeholder: 'Ingrese una cantidad en pesos',
+          pattern: '\\d{1,25}'
+        }
       }
+      
     ],
   },
 },
@@ -369,7 +382,16 @@ export class AppComponent {
 
   {
     className: 'datos-personales-otros-ocupantes',
-    template: '<div><h3>Datos personales de otros ocupantes del inmueble:</h3></div>',
+    template: '<div><h2>Datos personales de otros ocupantes del inmueble:</h2></div>',
+    
+  },
+  {
+    key: 'Cantidad de personas que viven con usted',
+    type: 'input',
+    templateOptions: {
+      label: 'Cantidad de personas del grupo conviviente',
+      placeholder: 'Ingrese cantidad'
+    }
   },
   {
     key: 'Datos personales de otros ocupantes del inmueble',
@@ -379,13 +401,14 @@ export class AppComponent {
     },
     fieldArray:{
       fieldGroup:[
+        
         {
           key: 'Apellidos',
           type: 'input',
           templateOptions:{
             required: true,
             label: 'Apellidos',
-            placeholder: 'Ingrese un/os apellido/s'
+            placeholder: 'Ingrese un/los apellido/s'
           }
         },
         {
@@ -430,12 +453,27 @@ export class AppComponent {
         },
         {
           key: 'Ocupación',
-          type: 'input',
-          templateOptions:{
-            required: true,
+          type: 'select',
+          templateOptions: {
             label: 'Ocupación',
-            placeholder: 'Ingrese una ocupación'
-          }
+            multiple: true,
+            options:[
+              {value: 'Ama de casa', label: 'Ama de casa'},
+              {value: 'Changarin', label: 'Changarin'},
+              {value: 'Estudiante', label: 'Estudiante'},
+              {value: 'Inactivo', label: 'Inactivo'},
+              {value: 'Jubilado/Pensionado', label: 'Jubilado/Pensionado'},
+              {value: 'Patrón o empleador', label: 'Patrón o empleador'},
+              {value: 'Servicio doméstico', label: 'Servicio doméstico'},
+              {value: 'Trabajo voluntario', label: 'Trabajo voluntario'},
+              {value: 'Cuenta propia', label: 'Cuenta propia'},
+              {value: 'Cuidado doméstico sin remuneración', label: 'Cuidado doméstico sin remuneración'},
+              {value: 'Desocupado', label: 'Desocupado'},
+              {value: 'Economía popular/asociativo', label: 'Economía popular/asociativo'},
+              {value: 'Empleado de un sector privado', label: 'Empleado de un sector privado'},
+            ],
+            required: true,
+          },
         },
         {
           key: 'Ingreso',
@@ -462,7 +500,7 @@ export class AppComponent {
   //--------------------------------------------------------------------------------------------------------
   {
     className: 'datos-ampliacion',
-    template: '<div><h2>Datos de la ampliación solicitada</h2></div>',
+    template: '<div><h2>Tipo de mejora a realizar</h2></div>',
   },
   {
     key: 'Ampliación solicitada',
@@ -471,22 +509,29 @@ export class AppComponent {
       addText: 'Ingresar datos de la ampliación solicitada',
     },
     fieldArray: {
-      fieldGroup: [  
+
+      fieldGroup: [
         {
-          template: '<div><h2>Habitación</h2></div>'
-        },
+          key: 'Donde realizará la mejora',
+          type: 'select',
+          templateOptions:{
+            label: 'Donde realizará la mejora',
+            options:[
+              {value: 'Baño', label: 'Baño'},
+              {value: 'Habitación', label: 'Habitación'},
+            ],
+            required: true
+          },
+        },  
         {
-          key: 'Cantidad de habitaciones que posee la vivienda',
+          key: 'Cantidad de habitaciones que posee la vivienda actualmente',
           type: 'input',
           templateOptions:{
-            label: 'Cantidad de habitaciones que posee la vivienda',
+            label: 'Cantidad de habitaciones que posee la vivienda actualmente',
             placeholder: 'Ingrese una cantidad de habitaciones',
             required: true,
             pattern: '\\d{1,2}'
           }
-        },
-        {
-          template: '<h2>Baño</h2>'
         },
         {
           key: 'Baño',
@@ -494,9 +539,9 @@ export class AppComponent {
           templateOptions:{
             label: 'Baño',
             options:[
+              {value: 'No tiene', label: 'No tiene'},
               {value: 'Uso compartido', label: 'Uso compartido'},
-              {value: 'Uso exclusivo', label: 'Uso exclusivo'},
-              {value: 'No posee', label: 'No posee'},
+              {value: 'Instalación incompleta', label: 'Instalación incompleta'},
             ],
             required: true
           },
@@ -550,11 +595,11 @@ export class AppComponent {
           },
         },
         {
-          key: 'Otro',
+          key: 'Indicaciones de referencia',
           type: 'input',
           templateOptions:{
-            label: 'Otro',
-            placeholder: 'Ingrese otro tipo de vivienda'
+            label: 'Indicaciones de referencia',
+            placeholder: 'Avenidas, edificios públicos, locales comerciales conocidos'
           }
         }
       ]
@@ -572,7 +617,15 @@ export class AppComponent {
       addText: 'Ingresar datos de la vivienda',
     },
     fieldArray: {
-      fieldGroup: [ 
+      fieldGroup: [
+        {
+          key: '¿Es propietario de la vivienda',
+          type: 'input',
+          templateOptions:{
+            label: '¿Es propietario de la vivienda',
+            placeholder: 'Avenidas, edificios públicos, locales comerciales conocidos'
+          }
+        }, 
         {
           key: 'Tipo de propietario',
           type: 'select',
@@ -582,19 +635,19 @@ export class AppComponent {
               {value: 'Propietario de vivienda y terreno', label: 'Propietario de vivienda y terreno'},
               {value: 'Propietario de solo vivienda', label: 'Propietario de solo vivienda'},
             ],
-            required: true
           }
         },
         {
-          key: 'Documento a presentar poseedor de titulo de dueño',
+          key: 'Documentación que acredita posesión a título de dueño',
           type: 'select',
           templateOptions:{
-            label: 'Documento a presentar poseedor de titulo de dueño',
+            label: 'Documentación que acredita posesión a título de dueño',
             options:[
+              {value: 'Escritura', label: 'Escritura'},
               {value: 'Boleto compra-venta', label: 'Boleto compra-venta'},
               {value: 'Sentencia firme de juicio usucapión', label: 'Sentencia firme de juicio usucapión'},
               {value: 'Auto declaración de herederos', label: 'Auto declaración de herederos'},
-              {value: 'Declaración jurada de herederos con acreditación de vinculo', label: 'Declaración jurada de herederos con acreditación de vinculo'},
+              {value: 'Declaración jurada con años de permanencia en la vivienda', label: 'Declaración jurada con años de permanencia en la vivienda'},
               {value: 'Resolución de inscripción en registro de poseedor LEY 9150', label: 'Resolución de inscripción en registro de poseedor LEY 9150'},
             ],
             required: true
