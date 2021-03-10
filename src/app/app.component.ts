@@ -112,7 +112,7 @@ export class AppComponent {
           key: 'Tipo de documento',
           type: 'select',
           templateOptions: {
-            label: 'Nombres',
+            label: 'Tipo de documento',
             options:[
               {value: 'DNI', label: 'DNI'},
               {value: 'LC', label: 'LC'},
@@ -481,7 +481,8 @@ export class AppComponent {
           templateOptions:{
             label: 'Cantidad de habitaciones que posee la vivienda',
             placeholder: 'Ingrese una cantidad de habitaciones',
-            required: true
+            required: true,
+            pattern: '\\d{1,2}'
           }
         },
         {
@@ -629,6 +630,7 @@ export class AppComponent {
           key: '¿Posee baño?',
           type: 'select',
           templateOptions:{
+            required: true,
             label: '¿Posee baño?',
             options: [
               {value: 'Si', label: 'Si'},
@@ -655,6 +657,7 @@ export class AppComponent {
           type: 'select',
           templateOptions:{
             label: 'Luz',
+            required: true,
             options: [
               {value: 'Si', label: 'Si'},
               {value: 'No', label: 'No'},
@@ -666,6 +669,7 @@ export class AppComponent {
           type: 'select',
           templateOptions:{
             label: 'Agua',
+            required: true,
             options: [
               {value: 'Si', label: 'Si'},
               {value: 'No', label: 'No'},
@@ -676,6 +680,7 @@ export class AppComponent {
           key: 'Gas natural',
           type: 'select',
           templateOptions:{
+            required: true,
             label: 'Gas natural',
             options: [
               {value: 'Si', label: 'Si'},
@@ -687,6 +692,7 @@ export class AppComponent {
           key: 'Gas envasado',
           type: 'select',
           templateOptions:{
+            required: true,
             label: 'Gas envasado',
             options: [
               {value: 'Si', label: 'Si'},
@@ -709,7 +715,6 @@ export class AppComponent {
             ]
           }
         },
-        
       ]
     }
   },
