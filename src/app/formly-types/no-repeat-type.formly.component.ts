@@ -2,17 +2,7 @@ import { Component } from '@angular/core';
 import { FieldArrayType } from '@ngx-formly/core';
 @Component({
   selector: 'formly-no-repeat-section',
-  template: `
-  <div style="margin:30px 0;">
-  <button mat-raised-button color="accent" type="button" *ngIf="mostrar" (click)="oculta()" (click)="add()">{{ to.addText }}</button>
-</div>
-    <div *ngFor="let field of field.fieldGroup; let i = index;" class="row">
-      <formly-field class="col" [field]="field"></formly-field>
-      <div class="col-sm-2 d-flex align-items-center">
-      </div>
-    </div>
-
-  `,
+  templateUrl: 'no-repeat-type.formly.component.html',
   styles: [
     `
     .datos-solicitante {color: red;}

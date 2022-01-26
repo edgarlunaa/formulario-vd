@@ -1,0 +1,23 @@
+<div style="margin: 30px 0">
+  <div *ngFor="let field of field.fieldGroup; let i = index" class="row">
+    <formly-field class="col" [field]="field"></formly-field>
+    <div class="col-sm-2 d-flex align-items-center">
+      <button mat-raised-button color="warn" type="button" (click)="borrar(i)">
+        Remover registro
+      </button>
+      <button mat-raised-button color="primary" type="button" (click)="agregar(i)">
+        {{ to.addText }}
+      </button>
+    </div>
+  </div>
+  <button
+    mat-raised-button
+    color="accent"
+    type="button"
+    *ngIf="mostrar"
+    (click)="oculta()"
+    (click)="agregar()"
+  >
+    {{ to.addText }}
+  </button>
+</div>
