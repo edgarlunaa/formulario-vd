@@ -1,0 +1,228 @@
+[
+  {
+    "className": "datos-solicitante",
+    "template": "<div class='coltit'><h2 style='color:#53aae0;'>Verificación de Avance de Obra</h2></div>"
+  },
+  {
+    "key": "Beneficiario",
+    "type": "no repeat",
+    "templateOptions": {
+      "addText": "Datos del Beneficiario Titular"
+    },
+    "fieldArray": {
+      "fieldGroup": [
+        {
+          "key": "CUIL",
+          "type": "input",
+          "templateOptions": {
+            "label": "CUIL",
+            "placeholder": "Ingrese CUIL del beneficiario",
+            "required": true
+          }
+        },
+        {
+          "key": "Fecha de Visita",
+          "type": "input",
+          "templateOptions": {
+            "type": "date",
+            "label": "Fecha de Visita",
+            "required": true
+          }
+        },
+        {
+          "key": "Nombre",
+          "type": "input",
+          "templateOptions": {
+            "label": "Nombre",
+            "placeholder": "Nombre del beneficiario",
+            "required": true
+          }
+        },
+        {
+          "key": "Apellido",
+          "type": "input",
+          "templateOptions": {
+            "label": "Apellido",
+            "placeholder": "Apellido del beneficiario",
+            "required": true
+          }
+        },
+        {
+          "key": "Direccion",
+          "type": "input",
+          "templateOptions": {
+            "label": "Dirección",
+            "placeholder": "Calle, manzana, lote",
+            "required": true
+          }
+        },
+        {
+          "key": "Teléfono de contacto",
+          "type": "input",
+          "templateOptions": {
+            "label": "Teléfono",
+            "placeholder": "Ingrese teléfono",
+            "pattern": "\\d{1,25}",
+            "required": true
+          }
+        },
+        {
+          "key": "Persona entrevistada",
+          "type": "input",
+          "templateOptions": {
+            "label": "persona entrevistada",
+            "placeholder": "Persona entrevistada",
+            "pattern": "\\d{1,25}",
+            "required": true
+          }
+        }
+      ]
+    }
+  },
+  {
+    "className": "Indique mejoras",
+    "template": "<div><h2>Mejoras indentificadas:</h2></div>"
+  },
+  {
+    "key": "Avances de obra",
+    "type": "no repeat",
+    "templateOptions": {
+      "addText": "Ingresar datos de avances de obra"
+    },
+    "fieldArray": {
+      "fieldGroup": [
+        {
+          "key": "Avance de obra",
+          "type": "select",
+          "templateOptions": {
+            "label": "¿Se visualiza avance de obra en:?",
+            "multiple": true,
+            "options": [
+              {
+                "value": "Arreglos estructurales",
+                "label": "Arreglos estructurales"
+              },
+              {
+                "value": "Baño",
+                "label": "Baño"
+              },
+              {
+                "value": "Conexiones de servicios básicos",
+                "label": "Conexiones de servicios básicos"
+              },
+              {
+                "value": "Habitación",
+                "label": "Habitación"
+              }
+            ],
+            "required": false
+          }
+        },
+        {
+          "key": "Materiales construccion",
+          "type": "select",
+          "templateOptions": {
+            "label": "¿Se visualizan materiales de construcción para:?",
+            "multiple": true,
+            "options": [
+              {
+                "value": "Arreglos estructurales",
+                "label": "Arreglos estructurales"
+              },
+              {
+                "value": "Baño",
+                "label": "Baño"
+              },
+              {
+                "value": "Conexiones de servicios básicos",
+                "label": "Conexiones de servicios básicos"
+              },
+              {
+                "value": "Habitación",
+                "label": "Habitación"
+              }
+            ],
+            "required": false
+          }
+        },
+        {
+          "key": "Comprobantes",
+          "type": "select",
+          "templateOptions": {
+            "label": "¿Se presentan comprobantes de gastos para materiales de construcción para:",
+            "multiple": true,
+            "options": [
+              {
+                "value": "Arreglos estructurales",
+                "label": "Arreglos estructurales"
+              },
+              {
+                "value": "Baño",
+                "label": "Baño"
+              },
+              {
+                "value": "Conexiones de servicios básicos",
+                "label": "Conexiones de servicios básicos"
+              },
+              {
+                "value": "Habitación",
+                "label": "Habitación"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+        {
+          "className": "Encuesta",
+          "template": "<div><h2>Opinión sobre el programa:</h2></div>"
+        },
+        {
+          "key": "Opinión",
+          "type": "no repeat",
+          "templateOptions": {
+            "addText": "Seleccione la frase que representa de manera más adecuada su opinión sobre el programa"
+          },
+          "fieldArray": {
+            "fieldGroup": [
+              {
+                "key": "Frases",
+                "type": "select",
+                "templateOptions": {
+                  "label": "Su opinión",
+                  "options": [
+                    {
+                      "value": "1",
+                      "label": "Representa algo beneficioso, y de mucha ayuda para mejorar la casa"
+                    },
+                    {
+                      "value": "2",
+                      "label": "Significó poder mejorar las condiciones de vida de mis hijos"
+                    },
+                    {
+                      "value": "3",
+                      "label": "Implicó poder independizarme"
+                    },
+                    {
+                      "value": "4",
+                      "label": "Avanzar de manera significativa en los arreglos que necesita la vivienda"
+                    }
+                  ],
+                  "required": false
+                }
+              },
+              {
+                "key": "Sugerencias",
+                "type": "textarea",
+                "templateOptions": {
+                  "label": "Indique alguna sugerencia u observación",
+                  "placeholder": "sugerencia",
+                  "rows": 5
+                }
+              }
+      ]
+    }
+  }
+
+]
